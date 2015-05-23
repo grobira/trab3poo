@@ -1,6 +1,6 @@
 package trab3;
-import java.util.Date;
 
+import java.util.Date;
 
 public class Rent {
 
@@ -8,8 +8,8 @@ public class Rent {
 	Date startBorrow;
 	
 	@SuppressWarnings("deprecation")
-	Rent(int year, int mouth, int day){
+	Rent(Book book,int year, int mouth, int day){
 		startBorrow = new Date(year, mouth, day);
-		
+		this.borrowed = book;
 	}
 }

@@ -1,4 +1,5 @@
 package trab3;
+
 public class Teacher extends User{
 	
 	Teacher(String name){

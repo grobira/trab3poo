@@ -9,6 +9,7 @@ public class User {
 	ArrayList<Rent> rents;
 	int rentMaxDays;
 	int maxRents;
+	int penality;
 	
 	User(String name){
 		this.name = name;
