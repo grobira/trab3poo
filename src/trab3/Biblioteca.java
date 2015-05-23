@@ -17,11 +17,12 @@ public class Biblioteca {
 	
 	
 	void updateSystem(String book, String user){
+		BookFactory fact = new BookFactory();
         try {
             BufferedReader in = new BufferedReader(new FileReader(book));
             String csv;
             while((csv = in.readLine()) != null) {
-                books.add(new Book(csv));
+                books.add(fact.makeBook(csv));
             }
             in.close();
         }
@@ -31,12 +32,12 @@ public class Biblioteca {
         catch(IOException e) {
             System.out.println("Error reading the file!");
         }
-        
+        UserFactory factU = new UserFactory();
         try {
             BufferedReader in = new BufferedReader(new FileReader(user));
             String csv;
             while((csv = in.readLine()) != null) {
-                users.add(new User(csv));
+                users.add(factU.makeUser(csv));
             }
             in.close();
         }

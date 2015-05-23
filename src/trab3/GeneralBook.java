@@ -2,7 +2,7 @@ package trab3;
 
 public class GeneralBook extends Book{
 	
-	GeneralBook(String name){
-		super(name);
+	GeneralBook(String[] name){
+		super(name[1]);
 	}
 }
