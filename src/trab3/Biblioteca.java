@@ -9,14 +9,16 @@ import java.util.ArrayList;
 public class Biblioteca {
 	ArrayList<User> users;
 	ArrayList<Book> books;
+	ArrayList<Rent> rents;
 	
 	Biblioteca(){
 		users = new ArrayList<User>();
 		books = new ArrayList<Book>();
+		rents = new ArrayList<Rent>();
 	}
 	
 	
-	void updateSystem(String book, String user){
+	void updateLib(String book, String user, String rent){
 		BookFactory fact = new BookFactory();
         try {
             BufferedReader in = new BufferedReader(new FileReader(book));
@@ -32,6 +34,7 @@ public class Biblioteca {
         catch(IOException e) {
             System.out.println("Error reading the file!");
         }
+        
         UserFactory factU = new UserFactory();
         try {
             BufferedReader in = new BufferedReader(new FileReader(user));
@@ -42,7 +45,22 @@ public class Biblioteca {
             in.close();
         }
         catch(FileNotFoundException e) {
-            System.out.println("File " + book + " was not found!");
+            System.out.println("File " + user + " was not found!");
+        }
+        catch(IOException e) {
+            System.out.println("Error reading the file!");
+        }
+        
+        try {
+            BufferedReader in = new BufferedReader(new FileReader(rent));
+            String csv;
+            while((csv = in.readLine()) != null) {
+                rents.add(new Rent(csv));
+            }
+            in.close();
+        }
+        catch(FileNotFoundException e) {
+            System.out.println("File " + rent + " was not found!");
         }
         catch(IOException e) {
             System.out.println("Error reading the file!");

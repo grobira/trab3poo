@@ -6,8 +6,9 @@ public class LibrarySystem {
 		Biblioteca library = new Biblioteca();
 		String bookFile = "books.cvs";
 		String userFile = "users.cvs";
+		String rentFile = "rents.cvs";
 		
-		library.updateSystem(bookFile, userFile);
+		library.updateLib(bookFile, userFile, rentFile);
 	}
 
 }
