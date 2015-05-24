@@ -4,20 +4,30 @@ import java.util.Date;
 
 public class Rent {
 
-	public User getTenant() {
-		return tenant;
+
+
+	public int getTenantID() {
+		return tenantID;
 	}
 
-	public void setTenant(User tenant) {
-		this.tenant = tenant;
+	public void setTenantID(int tenantID) {
+		this.tenantID = tenantID;
 	}
 
-	public Book getBorrowed() {
-		return borrowed;
+	public int getBorrowedID() {
+		return borrowedID;
 	}
 
-	public void setBorrowed(Book borrowed) {
-		this.borrowed = borrowed;
+	public void setBorrowedID(int borrowedID) {
+		this.borrowedID = borrowedID;
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
 	}
 
 	public Date getStartBorrow() {
@@ -36,17 +46,22 @@ public class Rent {
 		this.isFinish = isFinish;
 	}
 
-	User tenant;
-	Book borrowed;
+	int tenantID;
+	int borrowedID;
 	Date startBorrow;
 	int isFinish;
+	int ID;
 	
 	@SuppressWarnings("deprecation")
 	Rent(String csv){
 		String[] values = csv.split(",");
-		startBorrow = new Date(Integer.parseInt(values[0]), Integer.parseInt(values[1]), Integer.parseInt(values[2]));
-		this.borrowed = new Book(values[3]);
-		this.tenant = new User(values[4]);
-		this.isFinish = Integer.parseInt(values[5]);  //1= true, 0= false
+		this.ID = Integer.parseInt(values[0]);
+		startBorrow = new Date(Integer.parseInt(values[1])
+				, Integer.parseInt(values[2])
+				, Integer.parseInt(values[3]));
+		this.borrowedID = Integer.parseInt(values[4]);
+		this.tenantID = Integer.parseInt(values[5]);
+		this.isFinish = Integer.parseInt(values[6]);  //1= true, 0= false
+		
 	}
 }

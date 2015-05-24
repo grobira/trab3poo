@@ -3,6 +3,7 @@ package trab3;
 public class Book {
 	String name;
 	boolean isFree;
+	int ID;
 	
 	public String getName() {
 		return name;

@@ -4,20 +4,21 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 public class Biblioteca {
-	ArrayList<User> users;
-	ArrayList<Book> books;
-	ArrayList<Rent> rents;
+	List<User> users;
+	List<Book> books;
+	List<Rent> rents;
 	
-	Biblioteca(){
-		users = new ArrayList<User>();
-		books = new ArrayList<Book>();
-		rents = new ArrayList<Rent>();
-	}
+	Biblioteca(){}
 	
-	
+	/*
+	 * Organização dos arquivos cvs
+	 * user : tipo , ID , name , rents[] 
+	 * book : tipo, ID, name
+	 * rent : ID, date( yyyy , mm , dd), bookID, userID, isFinish
+	 */
 	void updateLib(String book, String user, String rent){
 		BookFactory fact = new BookFactory();
         try {

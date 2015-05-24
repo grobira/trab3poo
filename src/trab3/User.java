@@ -1,14 +1,13 @@
 package trab3;
 
-import java.util.ArrayList;
-
-
 public class User {
 	
 	String name;
-	ArrayList<Rent> rents;
+	int[] rentsID;
 	int rentMaxDays;
 	int maxRents;
+	int ID;
+	
 	public String getName() {
 		return name;
 	}
@@ -17,12 +16,12 @@ public class User {
 		this.name = name;
 	}
 
-	public ArrayList<Rent> getRents() {
-		return rents;
+	public int[] getRentsID() {
+		return rentsID;
 	}
 
-	public void setRents(ArrayList<Rent> rents) {
-		this.rents = rents;
+	public void setRents(int[] rents) {
+		this.rentsID = rents;
 	}
 
 	public int getRentMaxDays() {
@@ -53,6 +52,5 @@ public class User {
 	
 	User(String name){
 		this.name = name;
-		this.rents = new ArrayList<Rent>();
 	}
 }
