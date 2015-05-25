@@ -1,8 +1,8 @@
 package trab3;
 
-public class Text extends Book{
+public class TextBook extends Book{
 	
-	Text(String[] name){
+	TextBook(String[] name){
 		super(name[2]);
 		this.ID = Integer.parseInt(name[1]);
 	}

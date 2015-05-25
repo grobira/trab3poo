@@ -10,7 +10,7 @@ public class BookFactory {
 		if ( type == '0')
 			return new GeneralBook(values);
 		else
-			return new Text(values);
+			return new TextBook(values);
 		
 	}
 }

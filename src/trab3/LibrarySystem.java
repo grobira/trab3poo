@@ -1,11 +1,18 @@
 package trab3;
 
+import java.util.Date;
+
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class LibrarySystem extends Application{
@@ -24,18 +31,36 @@ public class LibrarySystem extends Application{
 		library.updateLib(bookFile, userFile, rentFile);
 		
 		 StackPane root = new StackPane();
-	     Scene scene = new Scene(root, 600, 600);
+	     Scene scene = new Scene(root, 400, 100);
 	     HBox hbGetDate = new HBox();
 	     TextField textGetDate = new TextField();
 	     Button btGetDate = new Button();
-	     hbGetDate.getChildren().add(textGetDate);
-	     hbGetDate.getChildren().add(btGetDate);
+
 	     btGetDate.setText("Enter");
 	     
-	     btGetDate.setOnAction(event ->{
-               System.out.println("elidio babaca");
-              });
-	     root.getChildren().add(hbGetDate);
+	     Text tGetDate = new Text();
+	     tGetDate.setText("Entre com a data para simular o sistema (yyyy/mm/dd) : ");
+	     Label lb = new Label();
+	     
+	     btGetDate.setOnAction(new EventHandler<ActionEvent>(){
+			@Override
+			public void handle(ActionEvent e) {
+				
+				lb.setText(textGetDate.getText());
+			}
+	    	  
+	     });
+	     VBox vbGetDate = new VBox();
+	     hbGetDate.getChildren().add(textGetDate);
+	     hbGetDate.getChildren().add(btGetDate);
+	     
+	     vbGetDate.getChildren().add(tGetDate);
+	     vbGetDate.getChildren().add(hbGetDate);
+	     
+	     
+	     
+	     root.getChildren().add(vbGetDate);
+	     
 	     
 	     
 	     
