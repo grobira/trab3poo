@@ -24,9 +24,9 @@ public class LibrarySystem extends Application {
 	@Override
     public void start(Stage primaryStage) throws Exception {
 	Biblioteca library = new Biblioteca();
-	String bookFile = "books.csv";
-	String userFile = "users.csv";
-	String rentFile = "rents.csv";
+	String bookFile = "src/books.csv";
+	String userFile = "src/users.csv";
+	String rentFile = "src/rents.csv";
 
 	library.updateLib(bookFile, userFile, rentFile);
 
@@ -42,14 +42,14 @@ public class LibrarySystem extends Application {
 	tGetDate.setText("Entre com a data para simular o sistema (yyyy/mm/dd) : ");
 	Label lb = new Label();
 
-	btGetDate.setOnAction(new EventHandler<ActionEvent>() {
-	    @Override
-	    public void handle(ActionEvent e) {
+	//btGetDate.setOnAction(new EventHandler<ActionEvent>() {
+	    //@Override
+	    //public void handle(ActionEvent e) {
 
-		lb.setText(textGetDate.getText());
-	    }
+		//lb.setText(textGetDate.getText());
+	    //}
 
-	});
+	//});
 	
 	String dateStr = lb.getText();
 	String[] dates = dateStr.split("/");

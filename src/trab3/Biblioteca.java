@@ -74,7 +74,7 @@ public class Biblioteca {
 
     public void addInUserFile(User nUser) {
 	try {
-	    PrintWriter pw = new PrintWriter(new FileOutputStream("users.cvs"));
+	    PrintWriter pw = new PrintWriter(new FileOutputStream("src/users.csv"));
 	    pw.println(nUser.toString());
 	    pw.close();
 	} catch (FileNotFoundException e) {
@@ -89,7 +89,7 @@ public class Biblioteca {
 
     public void addInBookFile(Book nBook) {
 	try {
-	    PrintWriter pw = new PrintWriter(new FileOutputStream("books.cvs"));
+	    PrintWriter pw = new PrintWriter(new FileOutputStream("src/books.csv"));
 	    pw.println(nBook.toString());
 	    pw.close();
 	} catch (FileNotFoundException e) {
@@ -105,7 +105,7 @@ public class Biblioteca {
     
     public void addInRentFile(Rent nRent){
     	try {
-    	    PrintWriter pw = new PrintWriter(new FileOutputStream("rents.cvs"));
+    	    PrintWriter pw = new PrintWriter(new FileOutputStream("src/rents.csv"));
     	    pw.println(nRent.toString());
     	    pw.close();
     	} catch (FileNotFoundException e) {
