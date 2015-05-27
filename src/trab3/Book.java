@@ -1,7 +1,5 @@
 package trab3;
 
-//Teste pelo amor de deus funciona
-
 public class Book {
 
     String name;
