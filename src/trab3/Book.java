@@ -3,7 +3,8 @@ package trab3;
 public class Book {
 
     String name;
-    boolean isFree;
+    int type;
+    boolean status;
     int ID;
 
     public String getName() {
@@ -14,16 +15,21 @@ public class Book {
 	this.name = name;
     }
 
-    public boolean isFree() {
-	return isFree;
+    public boolean getStatus() {
+	return status;
     }
 
-    public void setFree(boolean isFree) {
-	this.isFree = isFree;
+    public void setFree(boolean status) {
+	this.status = status;
     }
 
     Book(String name) {
 	this.name = name;
-	this.isFree = true;
+	this.status = true;
+    }
+
+    public String toString() {
+	String register = type + "+" + ID + "," + name;
+	return register;
     }
 }

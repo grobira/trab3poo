@@ -65,21 +65,34 @@ public class Biblioteca {
 	    System.out.println("Error reading the file!");
 	}
     }
-    
-    
-    
-    public void addUser(User nUser){
-    	users.add(nUser);
-    	addInUserFile(nUser);
+
+    public void addUser(User nUser) {
+	users.add(nUser);
+	addInUserFile(nUser);
     }
-    
-    public void addInUserFile(User nUser){
-    	try {
-			PrintWriter pw = new PrintWriter(new FileOutputStream("users.cvs"));
-			pw.println(nUser.toString());
-			pw.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+
+    public void addInUserFile(User nUser) {
+	try {
+	    PrintWriter pw = new PrintWriter(new FileOutputStream("users.cvs"));
+	    pw.println(nUser.toString());
+	    pw.close();
+	} catch (FileNotFoundException e) {
+	    e.printStackTrace();
+	}
+    }
+
+    public void addBook(Book nBook) {
+	books.add(nBook);
+	addInBookFile(nBook);
+    }
+
+    public void addInBookFile(Book nBook) {
+	try {
+	    PrintWriter pw = new PrintWriter(new FileOutputStream("books.cvs"));
+	    pw.println(nBook.toString());
+	    pw.close();
+	} catch (FileNotFoundException e) {
+	    e.printStackTrace();
+	}
     }
 }
