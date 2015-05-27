@@ -1,56 +1,56 @@
 package trab3;
 
 public class User {
-	
-	String name;
-	int[] rentsID;
-	int rentMaxDays;
-	int maxRents;
-	int ID;
-	
-	public String getName() {
-		return name;
-	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    String name;
+    int[] rentsID;
+    int rentMaxDays;
+    int maxRents;
+    int ID;
 
-	public int[] getRentsID() {
-		return rentsID;
-	}
+    public String getName() {
+	return name;
+    }
 
-	public void setRents(int[] rents) {
-		this.rentsID = rents;
-	}
+    public void setName(String name) {
+	this.name = name;
+    }
 
-	public int getRentMaxDays() {
-		return rentMaxDays;
-	}
+    public int[] getRentsID() {
+	return rentsID;
+    }
 
-	public void setRentMaxDays(int rentMaxDays) {
-		this.rentMaxDays = rentMaxDays;
-	}
+    public void setRents(int[] rents) {
+	this.rentsID = rents;
+    }
 
-	public int getMaxRents() {
-		return maxRents;
-	}
+    public int getRentMaxDays() {
+	return rentMaxDays;
+    }
 
-	public void setMaxRents(int maxRents) {
-		this.maxRents = maxRents;
-	}
+    public void setRentMaxDays(int rentMaxDays) {
+	this.rentMaxDays = rentMaxDays;
+    }
 
-	public int getPenality() {
-		return penality;
-	}
+    public int getMaxRents() {
+	return maxRents;
+    }
 
-	public void setPenality(int penality) {
-		this.penality = penality;
-	}
+    public void setMaxRents(int maxRents) {
+	this.maxRents = maxRents;
+    }
 
-	int penality;
-	
-	User(String name){
-		this.name = name;
-	}
+    public int getPenality() {
+	return penality;
+    }
+
+    public void setPenality(int penality) {
+	this.penality = penality;
+    }
+
+    int penality;
+
+    User(String name) {
+	this.name = name;
+    }
 }
