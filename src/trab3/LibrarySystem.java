@@ -26,9 +26,9 @@ public class LibrarySystem extends Application {
 	@Override
     public void start(Stage primaryStage) throws Exception {
 	Biblioteca library = new Biblioteca();
-	String bookFile = "books.cvs";
-	String userFile = "users.cvs";
-	String rentFile = "rents.cvs";
+	String bookFile = "books.csv";
+	String userFile = "users.csv";
+	String rentFile = "rents.csv";
 
 	library.updateLib(bookFile, userFile, rentFile);
 
