@@ -47,6 +47,7 @@ public class Rent {
     int tenantID;
     int borrowedID;
     Date startBorrow;
+    Date endBorrow;
     int isFinish;
     int ID;
 
@@ -55,9 +56,10 @@ public class Rent {
 	String[] values = csv.split(",");
 	this.ID = Integer.parseInt(values[0]);
 	startBorrow = new Date(Integer.parseInt(values[1]), Integer.parseInt(values[2]), Integer.parseInt(values[3]));
-	this.borrowedID = Integer.parseInt(values[4]);
-	this.tenantID = Integer.parseInt(values[5]);
-	this.isFinish = Integer.parseInt(values[6]);  //1= true, 0= false
+	endBorrow = new Date(Integer.parseInt(values[4]), Integer.parseInt(values[5]), Integer.parseInt(values[6]));
+	this.borrowedID = Integer.parseInt(values[7]);
+	this.tenantID = Integer.parseInt(values[8]);
+	this.isFinish = Integer.parseInt(values[9]);  //1= true, 0= false
 
     }
 }

@@ -22,7 +22,8 @@ public class LibrarySystem extends Application {
 	//commit pro geo
     }
 
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public void start(Stage primaryStage) throws Exception {
 	Biblioteca library = new Biblioteca();
 	String bookFile = "books.cvs";
@@ -36,7 +37,7 @@ public class LibrarySystem extends Application {
 	HBox hbGetDate = new HBox();
 	TextField textGetDate = new TextField();
 	Button btGetDate = new Button();
-
+	
 	btGetDate.setText("Enter");
 
 	Text tGetDate = new Text();
@@ -51,6 +52,13 @@ public class LibrarySystem extends Application {
 	    }
 
 	});
+	
+	String dateStr = lb.getText();
+	String[] dates = dateStr.split("/");
+	
+	Date simDate = new Date(Integer.parseInt(dates[0]), Integer.parseInt(dates[1]), Integer.parseInt(dates[2]));
+	
+	
 	VBox vbGetDate = new VBox();
 	hbGetDate.getChildren().add(textGetDate);
 	hbGetDate.getChildren().add(btGetDate);

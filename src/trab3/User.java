@@ -7,6 +7,8 @@ public class User {
     int rentMaxDays;
     int maxRents;
     int ID;
+    int penality;
+    int type;
 
     public String getName() {
 	return name;
@@ -48,9 +50,15 @@ public class User {
 	this.penality = penality;
     }
 
-    int penality;
-
     User(String name) {
 	this.name = name;
+    }
+    
+    public String toString(){
+    	
+    	String register = type + "," + ID + "," + name;
+    	for ( int i = 0 ; i < rentsID.length ; i++)
+    		register += "," + rentsID[i];
+    	return register; 
     }
 }

@@ -13,6 +13,7 @@ public class Teacher extends User {
 	this.rentsID[3] = Integer.parseInt(name[6]);
 	this.rentsID[4] = Integer.parseInt(name[7]);
 	this.rentsID[5] = Integer.parseInt(name[8]);
+	this.type = 2;
     }
 
 }

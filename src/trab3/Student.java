@@ -11,5 +11,6 @@ public class Student extends User {
 	this.rentsID[1] = Integer.parseInt(name[4]);
 	this.rentsID[2] = Integer.parseInt(name[5]);
 	this.rentsID[3] = Integer.parseInt(name[6]);
+	this.type = 1;
     }
 }
