@@ -32,4 +32,8 @@ public class Book {
 	String register = type + "+" + ID + "," + name;
 	return register;
     }
+
+	public int getID() {
+		return ID;
+	}
 }

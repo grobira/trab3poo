@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
 import java.util.List;
 
 public class Biblioteca {
@@ -94,5 +95,21 @@ public class Biblioteca {
 	} catch (FileNotFoundException e) {
 	    e.printStackTrace();
 	}
+    }
+    
+    public void addRent(User us, Book bk, Calendar dt){
+    	Rent nRent = new Rent(us, bk, dt);
+    	rents.add(nRent);
+    	addInRentFile(nRent);
+    }
+    
+    public void addInRentFile(Rent nRent){
+    	try {
+    	    PrintWriter pw = new PrintWriter(new FileOutputStream("rents.cvs"));
+    	    pw.println(nRent.toString());
+    	    pw.close();
+    	} catch (FileNotFoundException e) {
+    	    e.printStackTrace();
+    	}
     }
 }

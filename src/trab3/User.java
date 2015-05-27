@@ -54,6 +54,10 @@ public class User {
 	this.name = name;
     }
     
+	public int getID() {
+		return ID;
+	}
+    
     public String toString(){
     	
     	String register = type + "," + ID + "," + name;
