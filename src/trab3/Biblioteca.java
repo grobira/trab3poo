@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Calendar;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Biblioteca {
 
@@ -160,11 +161,14 @@ public class Biblioteca {
     	return true;
     }
     
-    public String findBookName(int rentID){
-    	String name;
-    	rents.stream().anyMatch(s -> s.getID().equals(rentID));
-    	
-    		
-    		
+    public String findBookRent(int rentID){
+    	List<Rent> rentSearch = rents.stream().filter(s -> s.getID() == rentID).collect(Collectors.toList());
+    	int bookID = rentSearch.get(0).getBorrowedID();
+    	return findBookName(bookID);
+    }
+    
+    public String findBookName(int bookID){
+    	List<Book> bookSearch = books.stream().filter(s -> s.getID() == bookID).collect(Collectors.toList());
+    	return bookSearch.get(0).getName();
     }
 }

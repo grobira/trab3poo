@@ -152,7 +152,7 @@ public class LibrarySystem{
     	int aux[] = us.getRentsID();
     	for ( int i = 0 ; i < us.getMaxRents() ; i++){
     		if ( aux[i] != 0){
-    			System.out.println("Livro emprestado : " + library.findBookName(aux[i]));
+    			System.out.println("Livro emprestado : " + library.findBookRent(aux[i]));
     		}
     			
     	}
