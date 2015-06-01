@@ -68,7 +68,7 @@ public class LibrarySystem{
     	System.out.println("O que deseja cadastrar :");
     	System.out.println("[1] Usuário");
     	System.out.println("[2] Livro");
-    	System.out.println("[Outro] Sair");
+    	System.out.println("[3] Sair");
 
     	Scanner in = new Scanner(System.in);
     	int resp = in.nextInt();
@@ -81,7 +81,7 @@ public class LibrarySystem{
     	System.out.println("[1] Comunidade");
     	System.out.println("[2] Aluno");
     	System.out.println("[3] Professor");
-    	System.out.println("[Outro] Sair");
+    	System.out.println("[4] Sair");
 
     	
     	int resp = in.nextInt();
@@ -93,7 +93,7 @@ public class LibrarySystem{
     	System.out.println("Qual o tipo de livro ?");
     	System.out.println("[1] Texto");
     	System.out.println("[2] Livro padrão");
-    	System.out.println("[Outro] Sair");
+    	System.out.println("[3] Sair");
 
     	
     	int resp = in.nextInt();
@@ -124,7 +124,7 @@ public class LibrarySystem{
     	System.out.println("Qual o tipo de livro ?");
     	System.out.println("[1] Texto");
     	System.out.println("[2] Livro padrão");
-    	System.out.println("[Outro] Sair");
+    	System.out.println("[3] Sair");
 
     	
     	int resp = in.nextInt();
@@ -136,7 +136,7 @@ public class LibrarySystem{
     	System.out.println("Qual o tipo de livro ?");
     	System.out.println("[1] Texto");
     	System.out.println("[2] Livro padrão");
-    	System.out.println("[Outro] Sair");
+    	System.out.println("[3] Sair");
 
     	
     	int resp = in.nextInt();
@@ -163,7 +163,7 @@ public class LibrarySystem{
 	System.out.println("Configuração de data:");
 	System.out.println("[1] Deixar data atual");
 	System.out.println("[2] Modificar data");
-	System.out.println("[Outro] Sair");
+	System.out.println("[3] Sair");
 
 	int resp;
 	
