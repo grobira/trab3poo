@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,6 +19,10 @@ public class Biblioteca {
     List<Rent> rents;
 
     Biblioteca() {
+    	users = new ArrayList<User>();
+    	books = new ArrayList<Book>();
+    	rents = new ArrayList<Rent>();
+    	
     }
 
     /*

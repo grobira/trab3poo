@@ -17,8 +17,7 @@ public class Community extends User {
 	rentMaxDays = 15;
 	maxRents = 2;
 	this.ID = id;
-	this.rentsID[0] = 0;
-	this.rentsID[1] = 0;
+	rentsID = new int[maxRents];
 	this.type = 0;
     }
 
