@@ -4,10 +4,12 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Calendar;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Biblioteca {
 
@@ -35,7 +37,14 @@ public class Biblioteca {
 	    in.close();
 	} catch (FileNotFoundException e) {
 	    System.out.println("File " + book + " was not found!");
-	} catch (IOException e) {
+	    try {
+		FileWriter arq = new FileWriter(book);
+		System.out.println("File " + book + " was created!");
+		arq.close();
+	    } catch (IOException l) {
+		System.out.println("Error reading/creating the file!");
+	    }
+	}catch (IOException e) {
 	    System.out.println("Error reading the file!");
 	}
 
@@ -47,9 +56,16 @@ public class Biblioteca {
 		users.add(factU.makeUser(csv));
 	    }
 	    in.close();
-	} catch (FileNotFoundException e) {
+	}  catch (FileNotFoundException e) {
 	    System.out.println("File " + user + " was not found!");
-	} catch (IOException e) {
+	    try {
+		FileWriter arq = new FileWriter(user);
+		System.out.println("File " + user + " was created!");
+		arq.close();
+	    } catch (IOException l) {
+		System.out.println("Error reading/creating the file!");
+	    }
+	}catch (IOException e) {
 	    System.out.println("Error reading the file!");
 	}
 
@@ -60,9 +76,17 @@ public class Biblioteca {
 		rents.add(new Rent(csv));
 	    }
 	    in.close();
-	} catch (FileNotFoundException e) {
+	}  catch (FileNotFoundException e) {
 	    System.out.println("File " + rent + " was not found!");
-	} catch (IOException e) {
+	    try {
+		FileWriter arq = new FileWriter(rent);
+		System.out.println("File " + rent + " was created!");
+		arq.close();
+		
+	    } catch (IOException l) {
+		System.out.println("Error reading/creating the file!");
+	    }
+	}catch (IOException e) {
 	    System.out.println("Error reading the file!");
 	}
     }
@@ -137,11 +161,16 @@ public class Biblioteca {
     	return true;
     }
     
-    public String findBookName(int rentID){
-    	String name;
-    	rents.stream().anyMatch(s -> s.getID().equals(rentID));
-    	
-    		
-    		
+
+    public String findBookRent(int rentID){
+    	List<Rent> rentSearch = rents.stream().filter(s -> s.getID() == rentID).collect(Collectors.toList());
+    	int bookID = rentSearch.get(0).getBorrowedID();
+    	return findBookName(bookID);
+    }
+    
+    public String findBookName(int bookID){
+    	List<Book> bookSearch = books.stream().filter(s -> s.getID() == bookID).collect(Collectors.toList());
+    	return bookSearch.get(0).getName();
+
     }
 }
