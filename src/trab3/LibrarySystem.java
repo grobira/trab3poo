@@ -23,6 +23,15 @@ public class LibrarySystem{
 			resp = MenuCadastrar();
 			if ( resp == 1){
 				resp = MenuCadastrarUsuario();
+				if ( resp == 1){
+					MenuCadastrarComunidade();
+				}
+				else if ( resp == 2){
+					resp = MenuCadastrarAluno();
+				}
+				else if ( resp == 3){
+					resp = MenuCadastrarProfessor();
+				}
 			}
 			else if ( resp == 2){
 				resp = MenuCadastrarLivro();
@@ -90,6 +99,64 @@ public class LibrarySystem{
     	int resp = in.nextInt();
     	in.close();
     	return resp; 
+    }
+    
+    static void MenuCadastrarComunidade(){
+    	System.out.println("Entre com os dados do usuário :");
+    	System.out.println("Nome :");
+
+    	Scanner in = new Scanner(System.in);
+    	String name = in.nextLine();
+    	in.close();
+    	
+    	
+    	Community nCmmt = new Community(name, library.getUsers().size() + 1);
+    	if(library.validateUser(nCmmt)){
+    		library.addUser(nCmmt);
+    		System.out.println("Usuario cadastrado com sucesso!");
+    		printUser(nCmmt);
+    	}else
+    		System.out.println("Falha ao cadastrar usuario, tente novamente!");    		
+    	
+    }
+    
+    static int MenuCadastrarAluno(){
+    	System.out.println("Qual o tipo de livro ?");
+    	System.out.println("[1] Texto");
+    	System.out.println("[2] Livro padrão");
+    	System.out.println("[3] Sair");
+
+    	Scanner in = new Scanner(System.in);
+    	int resp = in.nextInt();
+    	in.close();
+    	return resp; 
+    }
+    
+    static int MenuCadastrarProfessor(){
+    	System.out.println("Qual o tipo de livro ?");
+    	System.out.println("[1] Texto");
+    	System.out.println("[2] Livro padrão");
+    	System.out.println("[3] Sair");
+
+    	Scanner in = new Scanner(System.in);
+    	int resp = in.nextInt();
+    	in.close();
+    	return resp; 
+    }
+    
+    static void printUser(User us){
+    	System.out.println("Nome : " + us.getName());
+    	System.out.println("ID do cadastro : " + us.getID());
+    	System.out.println("Penalidade : " + us.getPenality());
+    	System.out.println("Maximo de emprestimos : "+ us.getMaxRents() + " durante no máximo : " + us.getRentMaxDays());
+    	int aux[] = us.getRentsID();
+    	for ( int i = 0 ; i < us.getMaxRents() ; i++){
+    		if ( aux[i] != 0){
+    			System.out.println("Livro emprestado : " + library.findBookName(aux[i]));
+    		}
+    			
+    	}
+    	
     }
 
 }
