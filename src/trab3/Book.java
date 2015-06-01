@@ -33,14 +33,14 @@ public class Book {
 	return register;
     }
 
-	public int getID() {
-		return ID;
-	}
-	
-	public void print(){
-		System.out.println("ID de cadastro do livro : " + getID());
-    	System.out.println("Nome : " + getName());
-    	System.out.println("Disponivel : " + getStatus());
-    	System.out.println();
-	}
+    public int getID() {
+	return ID;
+    }
+
+    public void print() {
+	System.out.println("ID de cadastro do livro : " + getID());
+	System.out.println("Nome : " + getName());
+	System.out.println("Disponivel : " + getStatus());
+	System.out.println();
+    }
 }

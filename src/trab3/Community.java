@@ -11,7 +11,7 @@ public class Community extends User {
 	this.rentsID[1] = Integer.parseInt(name[4]);
 	this.type = 0;
     }
-    
+
     Community(String name, int id) {
 	super(name);
 	rentMaxDays = 15;

@@ -3,7 +3,7 @@ package trab3;
 import java.util.Calendar;
 
 public class Rent {
-	
+
     int tenantID; //locatario
     int borrowedID;	//livro emprestado
     Calendar startBorrow;
@@ -51,7 +51,6 @@ public class Rent {
 	this.isFinish = isFinish;
     }
 
-
     Rent(String csv) {
 	String[] values = csv.split(",");
 	this.ID = Integer.parseInt(values[0]);
@@ -65,17 +64,17 @@ public class Rent {
 
     }
 
-	public Rent(User us, Book bk, Calendar dt, int id) {
-		this.borrowedID = bk.getID();
-		this.tenantID = us.getID();
-		this.startBorrow = dt;
-		this.isFinish = 0;
-		this.endBorrow = startBorrow;
-		endBorrow.add(Calendar.DAY_OF_MONTH, us.getRentMaxDays());
-		
-	}
-	
-	public String toString(){
-		return ID + "," + startBorrow.toString() + "," + endBorrow.toString() + "," + borrowedID + "," + tenantID + "," + isFinish;
-	}
+    public Rent(User us, Book bk, Calendar dt, int id) {
+	this.borrowedID = bk.getID();
+	this.tenantID = us.getID();
+	this.startBorrow = dt;
+	this.isFinish = 0;
+	this.endBorrow = startBorrow;
+	endBorrow.add(Calendar.DAY_OF_MONTH, us.getRentMaxDays());
+
+    }
+
+    public String toString() {
+	return ID + "," + startBorrow.toString() + "," + endBorrow.toString() + "," + borrowedID + "," + tenantID + "," + isFinish;
+    }
 }
