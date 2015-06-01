@@ -39,6 +39,7 @@ public class Biblioteca {
 	    try {
 		FileWriter arq = new FileWriter(book);
 		System.out.println("File " + book + " was created!");
+		arq.close();
 	    } catch (IOException l) {
 		System.out.println("Error reading/creating the file!");
 	    }
@@ -59,6 +60,7 @@ public class Biblioteca {
 	    try {
 		FileWriter arq = new FileWriter(user);
 		System.out.println("File " + user + " was created!");
+		arq.close();
 	    } catch (IOException l) {
 		System.out.println("Error reading/creating the file!");
 	    }
@@ -78,6 +80,7 @@ public class Biblioteca {
 	    try {
 		FileWriter arq = new FileWriter(rent);
 		System.out.println("File " + rent + " was created!");
+		arq.close();
 		
 	    } catch (IOException l) {
 		System.out.println("Error reading/creating the file!");
