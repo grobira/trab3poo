@@ -28,10 +28,10 @@ public class LibrarySystem{
 					MenuCadastrarComunidade();
 				}
 				else if ( resp == 2){
-					resp = MenuCadastrarAluno();
+					MenuCadastrarAluno();
 				}
 				else if ( resp == 3){
-					resp = MenuCadastrarProfessor();
+					MenuCadastrarProfessor();
 				}
 			}
 			else if ( resp == 2){
@@ -120,7 +120,6 @@ public class LibrarySystem{
     static void MenuCadastrarAluno(){
     	System.out.println("Entre com os dados do usuário :");
     	System.out.println("Nome :");
-t
 
     	String name = in.nextLine();
     	
