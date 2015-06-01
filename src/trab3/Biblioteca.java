@@ -122,7 +122,12 @@ public class Biblioteca {
     }
     
     public void addRent(User us, Book bk, Calendar dt){
-    	Rent nRent = new Rent(us, bk, dt);
+    	Rent nRent = new Rent(us, bk, dt, rents.size()+1);
+    	rents.add(nRent);
+    	addInRentFile(nRent);
+    }
+    
+    public void addRent(Rent nRent){
     	rents.add(nRent);
     	addInRentFile(nRent);
     }

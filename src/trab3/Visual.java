@@ -1,7 +1,9 @@
 package trab3;
 
 import java.util.Calendar;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Visual {
 	Scanner in;
@@ -15,7 +17,8 @@ public class Visual {
     	System.out.println("\n[1] Cadastrar");
     	System.out.println("[2] Listar registros");
     	System.out.println("[3] Configurar data");
-    	System.out.println("[4] Sair");
+    	System.out.println("[4] Registrar emprestimo");
+    	System.out.println("[5] Sair");
     	
     	int resp = in.nextInt();
     	
@@ -189,6 +192,34 @@ public class Visual {
 	
 	System.out.println("Data e Hora atual: " + c.getTime());
     return c;
+    }
+    
+    
+    public void MenuEmprestimo(Biblioteca library, Calendar c){
+    	System.out.println("Entre com o nome do usuario :");
+    	String uName = in.nextLine();
+    	
+    	List<User> userSearch = library.getUsers().stream().filter(s -> s.getName().equals(uName)).collect(Collectors.toList());
+    	System.out.println("Entre com o indice do usuario correspondente ao ID :");
+    	for ( int i = 0 ; i < userSearch.size() ; i++ ){
+    		System.out.println("[" + i + "] Nome : " + userSearch.get(i).getName() + " ID : " + userSearch.get(i).getID());
+    	}
+    	int uPos = in.nextInt();
+    	
+    	System.out.println("Entre com o nome do livro :");
+    	String bName = in.nextLine();
+    	
+    	List<Book> bookSearch = library.getBooks().stream().filter(s -> s.getName().equals(bName)).collect(Collectors.toList());
+    	System.out.println("Entre com o indice do livro correspondente ao ID :");
+    	for ( int i = 0 ; i < bookSearch.size() ; i++ ){
+    		System.out.println("[" + i + "] Nome : " + bookSearch.get(i).getName() + " ID : " + bookSearch.get(i).getID());
+    	}
+    	int bPos = in.nextInt();
+    	
+    	Rent nRnt = new Rent(userSearch.get(uPos), bookSearch.get(bPos), c , library.getRents().size()+1);
+    	
+    	library.addRent(nRnt);
+    	
     }
     
     public void printUser(Biblioteca library, User us){

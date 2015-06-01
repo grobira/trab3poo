@@ -18,7 +18,7 @@ public class LibrarySystem{
 	library.updateLib(bookFile, userFile, rentFile);
 	
 	int resp = 0;
-	while(resp != 4){
+	while(resp != 5){
 		resp = vs.Menu();
 		if (resp == 1){
 			resp = vs.MenuCadastrar();
@@ -59,6 +59,8 @@ public class LibrarySystem{
 		    } else if (resp == 2) {
 		    	sysCal = vs.MenuDataMudar();
 		    }
+		}else if (resp == 4){
+			vs.MenuEmprestimo(library, sysCal);
 		}
 	}
     }

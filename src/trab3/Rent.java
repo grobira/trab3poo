@@ -65,7 +65,7 @@ public class Rent {
 
     }
 
-	public Rent(User us, Book bk, Calendar dt) {
+	public Rent(User us, Book bk, Calendar dt, int id) {
 		this.borrowedID = bk.getID();
 		this.tenantID = us.getID();
 		this.startBorrow = dt;
