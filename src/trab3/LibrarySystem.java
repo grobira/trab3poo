@@ -6,8 +6,9 @@ import java.util.Scanner;
 
 public class LibrarySystem{
 	static Biblioteca library;
+	static Scanner in;
     public static void main(String args[]) {
-
+    in = new Scanner(System.in);
  
 	library = new Biblioteca();
 	String bookFile = "src/books.csv";
@@ -63,9 +64,9 @@ public class LibrarySystem{
     	System.out.println("[2] Listar registros");
     	System.out.println("[3] Simular outra data");
     	System.out.println("[4] Sair");
-    	Scanner in = new Scanner(System.in);
+    	
     	int resp = in.nextInt();
-    	in.close();
+    	
     	return resp;    	
     }
     
@@ -88,9 +89,9 @@ public class LibrarySystem{
     	System.out.println("[3] Professor");
     	System.out.println("[4] Sair");
 
-    	Scanner in = new Scanner(System.in);
+    	
     	int resp = in.nextInt();
-    	in.close();
+    	
     	return resp; 
     }
     
@@ -100,9 +101,9 @@ public class LibrarySystem{
     	System.out.println("[2] Livro padrão");
     	System.out.println("[3] Sair");
 
-    	Scanner in = new Scanner(System.in);
+    	
     	int resp = in.nextInt();
-    	in.close();
+    	
     	return resp; 
     }
     
@@ -110,9 +111,9 @@ public class LibrarySystem{
     	System.out.println("Entre com os dados do usuário :");
     	System.out.println("Nome :");
 
-    	Scanner in = new Scanner(System.in);
+    	
     	String name = in.nextLine();
-    	in.close();
+    	
     	
     	
     	Community nCmmt = new Community(name, library.getUsers().size() + 1);
@@ -131,9 +132,9 @@ public class LibrarySystem{
     	System.out.println("[2] Livro padrão");
     	System.out.println("[3] Sair");
 
-    	Scanner in = new Scanner(System.in);
+    	
     	int resp = in.nextInt();
-    	in.close();
+    	
     	return resp; 
     }
     
@@ -143,9 +144,9 @@ public class LibrarySystem{
     	System.out.println("[2] Livro padrão");
     	System.out.println("[3] Sair");
 
-    	Scanner in = new Scanner(System.in);
+    	
     	int resp = in.nextInt();
-    	in.close();
+    	
     	return resp; 
     }
     
@@ -171,10 +172,10 @@ public class LibrarySystem{
 	System.out.println("[3] Sair");
 
 	int resp;
-	try (Scanner in = new Scanner(System.in)) {
+	
 	    resp = in.nextInt();
 
-	}
+
 	return resp;
     }
 
@@ -187,18 +188,17 @@ public class LibrarySystem{
         Calendar c = Calendar.getInstance();
 
 	System.out.println("Entre com o dia (dd):");
-	Scanner in = new Scanner(System.in);
+
 	c.set(Calendar.DAY_OF_MONTH, in.nextInt());
 
 	System.out.println("Entre com o mês (mm):");
-	in = new Scanner(System.in);
+
 	c.set(Calendar.MONTH, (in.nextInt()-1));
 
 	System.out.println("Entre com o ano (yyyy):");
-	in = new Scanner(System.in);
+
 	c.set(Calendar.YEAR, in.nextInt());
 	
 	System.out.println("Data e Hora atual: " + c.getTime());
-	in.close();
     }
 }
