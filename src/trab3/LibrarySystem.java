@@ -105,10 +105,7 @@ public class LibrarySystem{
     	System.out.println("Entre com os dados do usuário :");
     	System.out.println("Nome :");
 
-    	
     	String name = in.nextLine();
-    	
-    	
     	
     	Community nCmmt = new Community(name, library.getUsers().size() + 1);
     	if(library.validateUser(nCmmt)){
@@ -120,29 +117,38 @@ public class LibrarySystem{
     	
     }
     
-    static int MenuCadastrarAluno(){
-    	System.out.println("Qual o tipo de livro ?");
-    	System.out.println("[1] Texto");
-    	System.out.println("[2] Livro padrão");
-    	System.out.println("[3] Sair");
+    static void MenuCadastrarAluno(){
+    	System.out.println("Entre com os dados do usuário :");
+    	System.out.println("Nome :");
+t
 
+    	String name = in.nextLine();
     	
-    	int resp = in.nextInt();
-    	
-    	return resp; 
+    	Student nStdnt = new Student(name, library.getUsers().size() + 1);
+    	if(library.validateUser(nStdnt)){
+    		library.addUser(nStdnt);
+    		System.out.println("Usuario cadastrado com sucesso!");
+    		printUser(nStdnt);
+    	}else
+    		System.out.println("Falha ao cadastrar usuario, tente novamente!");    		
     }
     
-    static int MenuCadastrarProfessor(){
-    	System.out.println("Qual o tipo de livro ?");
-    	System.out.println("[1] Texto");
-    	System.out.println("[2] Livro padrão");
-    	System.out.println("[3] Sair");
 
+    static void MenuCadastrarProfessor(){
+    	System.out.println("Entre com os dados do usuário :");
+    	System.out.println("Nome :");
+
+    	String name = in.nextLine();
     	
-    	int resp = in.nextInt();
-    	
-    	return resp; 
+    	Teacher nTchr = new Teacher(name, library.getUsers().size() + 1);
+    	if(library.validateUser(nTchr)){
+    		library.addUser(nTchr);
+    		System.out.println("Usuario cadastrado com sucesso!");
+    		printUser(nTchr);
+    	}else
+    		System.out.println("Falha ao cadastrar usuario, tente novamente!");    		
     }
+
     
     static void printUser(User us){
     	System.out.println("Nome : " + us.getName());

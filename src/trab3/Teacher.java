@@ -15,5 +15,19 @@ public class Teacher extends User {
 	this.rentsID[5] = Integer.parseInt(name[8]);
 	this.type = 2;
     }
+    
+    Teacher(String name, int id) {
+    	super(name);
+    	rentMaxDays = 60;
+    	maxRents = 6;
+    	this.ID = id;
+    	this.rentsID[0] = 0;
+    	this.rentsID[1] = 0;
+    	this.rentsID[2] = 0;
+    	this.rentsID[3] = 0;
+    	this.rentsID[4] = 0;
+    	this.rentsID[5] = 0;
+    	this.type = 2;
+    }
 
 }

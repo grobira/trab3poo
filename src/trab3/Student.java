@@ -13,4 +13,17 @@ public class Student extends User {
 	this.rentsID[3] = Integer.parseInt(name[6]);
 	this.type = 1;
     }
+    
+    
+    Student(String name, int id) {
+    	super(name);
+		rentMaxDays = 15;
+		maxRents = 4;
+		this.ID = id;
+		this.rentsID[0] = 0;
+		this.rentsID[1] = 0;
+		this.rentsID[2] = 0;
+		this.rentsID[3] = 0;
+		this.type = 1;
+    }
 }
