@@ -57,6 +57,15 @@ public class User {
 	public int getID() {
 		return ID;
 	}
+	
+	public void addRent(int nRentID){
+		int i = 0;
+		while(rentsID[i] != 0  && i < maxRents)
+			i++;
+		if(i < maxRents){
+			rentsID[i] = nRentID;
+		}
+	}
     
     public String toString(){
     	

@@ -218,8 +218,10 @@ public class Visual {
     	
     	Rent nRnt = new Rent(userSearch.get(uPos), bookSearch.get(bPos), c , library.getRents().size()+1);
     	
-    	library.addRent(nRnt);
+    	userSearch.get(uPos).addRent(nRnt.getID());
+    	bookSearch.get(bPos).setFree(false);   	    	
     	
+    	library.addRent(nRnt);   	
     }
     
     public void printUser(Biblioteca library, User us){
