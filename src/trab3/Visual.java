@@ -205,6 +205,9 @@ public class Visual {
     		System.out.println("[" + i + "] Nome : " + userSearch.get(i).getName() + " ID : " + userSearch.get(i).getID());
     	}
     	int uPos = in.nextInt();
+    	if( uPos > userSearch.size() || userSearch.get(uPos).getPenality() > 0){
+    		System.out.println("Usuário com multa ou entrada invalida");
+    	}else{
     	
     	System.out.println("Entre com o nome do livro :");
     	String bName = in.nextLine();
@@ -215,6 +218,9 @@ public class Visual {
     		System.out.println("[" + i + "] Nome : " + bookSearch.get(i).getName() + " ID : " + bookSearch.get(i).getID());
     	}
     	int bPos = in.nextInt();
+    	if ( bPos > bookSearch.size() || bookSearch.get(bPos).getStatus() == false){
+    		System.out.println("Livro indisponivel ou entrada invalida");
+    	}else{
     	
     	Rent nRnt = new Rent(userSearch.get(uPos), bookSearch.get(bPos), c , library.getRents().size()+1);
     	
@@ -222,6 +228,8 @@ public class Visual {
     	bookSearch.get(bPos).setFree(false);   	    	
     	
     	library.addRent(nRnt);   	
+    	}
+    	}
     }
     
     public void printUser(Biblioteca library, User us){
