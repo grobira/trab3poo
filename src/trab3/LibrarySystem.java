@@ -36,6 +36,12 @@ public class LibrarySystem{
 			}
 			else if ( resp == 2){
 				resp = MenuCadastrarLivro();
+				if ( resp == 1){
+					MenuCadastrarTexto();
+				}else if ( resp == 2){
+					MenuCadastrarLivroP();
+				}
+				
 			}
 		}
 		else if ( resp == 2){
@@ -94,7 +100,6 @@ public class LibrarySystem{
     	System.out.println("[1] Texto");
     	System.out.println("[2] Livro padrão");
     	System.out.println("[3] Sair");
-
     	
     	int resp = in.nextInt();
     	
@@ -147,6 +152,38 @@ public class LibrarySystem{
     	}else
     		System.out.println("Falha ao cadastrar usuario, tente novamente!");    		
     }
+    
+    static void MenuCadastrarTexto(){
+    	System.out.println("Entre com os dados do texto :");
+    	System.out.println("Nome :");
+
+    	String name = in.nextLine();
+    	
+    	TextBook nTxtbk = new TextBook(name, library.getBooks().size() + 1);
+    	if(library.validateBook(nTxtbk)){
+    		library.addBook(nTxtbk);
+    		System.out.println("Texto cadastrado com sucesso!");
+    		printBook(nTxtbk);
+    	}else
+    		System.out.println("Falha ao cadastrar texto, tente novamente!");    		
+    	
+    }
+    
+    static void MenuCadastrarLivroP(){
+    	System.out.println("Entre com os dados do livro :");
+    	System.out.println("Nome :");
+
+    	String name = in.nextLine();
+    	
+    	GeneralBook nGnrlbk = new GeneralBook(name, library.getBooks().size() + 1);
+    	if(library.validateBook(nGnrlbk)){
+    		library.addBook(nGnrlbk);
+    		System.out.println("Livro cadastrado com sucesso!");
+    		printBook(nGnrlbk);
+    	}else
+    		System.out.println("Falha ao cadastrar livro, tente novamente!");    		
+    	
+    }
 
     
     static void printUser(User us){
@@ -158,10 +195,14 @@ public class LibrarySystem{
     	for ( int i = 0 ; i < us.getMaxRents() ; i++){
     		if ( aux[i] != 0){
     			System.out.println("Livro emprestado : " + library.findBookName(aux[i]));
-    		}
-    			
+    		}		
     	}
-    	
+    }
+    
+    static void printBook(Book bk){
+    	System.out.println("Nome : " + bk.getName());
+    	System.out.println("ID de cadastro do livro : " + bk.getID());
+    	System.out.println("Disponivel : " + bk.getStatus());
     }
     
     static int MenuData() {

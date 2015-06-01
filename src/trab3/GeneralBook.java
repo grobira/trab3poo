@@ -8,4 +8,11 @@ public class GeneralBook extends Book {
 	this.type = 0;
     
     }
+    
+    GeneralBook(String name, int id) {
+	super(name);
+	this.ID = id;
+	this.type = 0;
+    
+    }
 }

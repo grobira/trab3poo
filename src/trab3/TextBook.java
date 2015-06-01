@@ -7,4 +7,10 @@ public class TextBook extends Book {
 	this.ID = Integer.parseInt(name[1]);
 	this.type = 1;
     }
+    
+    TextBook(String name, int id) {
+	super(name);
+	this.ID = id;
+	this.type = 1;
+    }
 }
