@@ -1,81 +1,95 @@
 package trab3;
 
 import java.util.Calendar;
-import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
+import java.util.Scanner;
 
-public class LibrarySystem extends Application {
 
+public class LibrarySystem{
+	static Biblioteca library;
     public static void main(String args[]) {
-	launch(args);
-	//commit pro geo
-    }
 
-	@Override
-    public void start(Stage primaryStage) throws Exception {
-	Biblioteca library = new Biblioteca();
+ 
+	library = new Biblioteca();
 	String bookFile = "src/books.csv";
 	String userFile = "src/users.csv";
 	String rentFile = "src/rents.csv";
 
 	library.updateLib(bookFile, userFile, rentFile);
-
-	StackPane root = new StackPane();
-	Scene scene = new Scene(root, 400, 100);
-	HBox hbGetDate = new HBox();
-	TextField textGetDate = new TextField();
-	Button btGetDate = new Button();
 	
-	btGetDate.setText("Enter");
+	int resp = 0;
+	while(resp != 4){
+		resp = Menu();
+		if (resp == 1){
+			resp = MenuCadastrar();
+			if ( resp == 1){
+				resp = MenuCadastrarUsuario();
+			}
+			else if ( resp == 2){
+				resp = MenuCadastrarLivro();
+			}
+		}
+		else if ( resp == 2){
+			
+		}
+		else if ( resp == 3){
+			
+		}
+	}
 
-	Text tGetDate = new Text();
-	tGetDate.setText("Entre com a data para simular o sistema (yyyy/mm/dd) : ");
-	Label lb = new Label();
 
-	//btGetDate.setOnAction(new EventHandler<ActionEvent>() {
-	    //@Override
-	    //public void handle(ActionEvent e) {
-
-		//lb.setText(textGetDate.getText());
-	    //}
-
-	//});
 	
-	String dateStr = lb.getText();
-	String[] dates = dateStr.split("/");
 	Calendar day = Calendar.getInstance();
-	day.set(Integer.parseInt(dates[0]), Integer.parseInt(dates[1]), Integer.parseInt(dates[2]));
+	//day.set(Integer.parseInt(dates[0]), Integer.parseInt(dates[1]), Integer.parseInt(dates[2]));
 	
-	
-	VBox vbGetDate = new VBox();
-	hbGetDate.getChildren().add(textGetDate);
-	hbGetDate.getChildren().add(btGetDate);
+    }
+    
+    static int Menu(){
+    	System.out.println("Bem vindo ao sistema de biblioteca");
+    	System.out.println("\n[1] Cadastrar");
+    	System.out.println("[2] Listar registros");
+    	System.out.println("[3] Simular outra data");
+    	System.out.println("[4] Sair");
+    	Scanner in = new Scanner(System.in);
+    	int resp = in.nextInt();
+    	in.close();
+    	return resp;    	
+    }
+    
+    static int MenuCadastrar(){
+    	System.out.println("O que deseja cadastrar :");
+    	System.out.println("[1] Usuário");
+    	System.out.println("[2] Livro");
+    	System.out.println("[3] Voltar");
 
-	vbGetDate.getChildren().add(tGetDate);
-	vbGetDate.getChildren().add(hbGetDate);
+    	Scanner in = new Scanner(System.in);
+    	int resp = in.nextInt();
+    	in.close();
+    	return resp;    	
+    }
+    
+    static int MenuCadastrarUsuario(){
+    	System.out.println("Qual o tipo de usuário ?");
+    	System.out.println("[1] Comunidade");
+    	System.out.println("[2] Aluno");
+    	System.out.println("[3] Professor");
+    	System.out.println("[4] Sair");
 
-	root.getChildren().add(vbGetDate);
+    	Scanner in = new Scanner(System.in);
+    	int resp = in.nextInt();
+    	in.close();
+    	return resp; 
+    }
+    
+    static int MenuCadastrarLivro(){
+    	System.out.println("Qual o tipo de livro ?");
+    	System.out.println("[1] Texto");
+    	System.out.println("[2] Livro padrão");
+    	System.out.println("[3] Sair");
 
-	//Scene scene1 = new Scene(root, 600, 600);
-	Button btCadastro = new Button();
-	Button btListar = new Button();
-	btCadastro.setText("Realizar novo cadastro");
-	btListar.setText("Listar cadastros");
-
-	primaryStage.setScene(scene);
-	primaryStage.setTitle("Library System");
-	primaryStage.show();
-
+    	Scanner in = new Scanner(System.in);
+    	int resp = in.nextInt();
+    	in.close();
+    	return resp; 
     }
 
 }
