@@ -19,15 +19,15 @@ public class Biblioteca {
     List<Rent> rents;
 
     Biblioteca() {
-    	users = new ArrayList<User>();
-    	books = new ArrayList<Book>();
-    	rents = new ArrayList<Rent>();
-    	
+	users = new ArrayList<User>();
+	books = new ArrayList<Book>();
+	rents = new ArrayList<Rent>();
+
     }
 
     /*
      * Organização dos arquivos cvs
-     * user : tipo , ID , name , rents[] 
+     * user : tipo , ID , name , rents[]
      * book : tipo, ID, name
      * rent : ID, date de locação( yyyy , mm , dd), data de devolução, bookID, userID, isFinish
      */
@@ -49,7 +49,7 @@ public class Biblioteca {
 	    } catch (IOException l) {
 		System.out.println("Error reading/creating the file!");
 	    }
-	}catch (IOException e) {
+	} catch (IOException e) {
 	    System.out.println("Error reading the file!");
 	}
 
@@ -61,7 +61,7 @@ public class Biblioteca {
 		users.add(factU.makeUser(csv));
 	    }
 	    in.close();
-	}  catch (FileNotFoundException e) {
+	} catch (FileNotFoundException e) {
 	    System.out.println("File " + user + " was not found!");
 	    try {
 		FileWriter arq = new FileWriter(user);
@@ -70,7 +70,7 @@ public class Biblioteca {
 	    } catch (IOException l) {
 		System.out.println("Error reading/creating the file!");
 	    }
-	}catch (IOException e) {
+	} catch (IOException e) {
 	    System.out.println("Error reading the file!");
 	}
 
@@ -81,17 +81,17 @@ public class Biblioteca {
 		rents.add(new Rent(csv));
 	    }
 	    in.close();
-	}  catch (FileNotFoundException e) {
+	} catch (FileNotFoundException e) {
 	    System.out.println("File " + rent + " was not found!");
 	    try {
 		FileWriter arq = new FileWriter(rent);
 		System.out.println("File " + rent + " was created!");
 		arq.close();
-		
+
 	    } catch (IOException l) {
 		System.out.println("Error reading/creating the file!");
 	    }
-	}catch (IOException e) {
+	} catch (IOException e) {
 	    System.out.println("Error reading the file!");
 	}
     }
@@ -125,62 +125,63 @@ public class Biblioteca {
 	    e.printStackTrace();
 	}
     }
-    
-    public void addRent(User us, Book bk, Calendar dt){
-    	Rent nRent = new Rent(us, bk, dt, rents.size()+1);
-    	rents.add(nRent);
-    	addInRentFile(nRent);
-    }
-    
-    public void addRent(Rent nRent){
-    	rents.add(nRent);
-    	addInRentFile(nRent);
-    }
-    
-    public void addInRentFile(Rent nRent){
-    	try {
-    	    PrintWriter pw = new PrintWriter(new FileOutputStream("src/rents.csv"));
-    	    pw.println(nRent.toString());
-    	    pw.close();
-    	} catch (FileNotFoundException e) {
-    	    e.printStackTrace();
-    	}
-    }
-    
-    public List<User> getUsers(){
-    	return users;
-    }
-    
-    public List<Book> getBooks(){
-    	return books;
-    }
-    
-    public List<Rent> getRents(){
-    	return rents;
-    }
-    
-    public boolean validateUser(User us){
-    	if(users.stream().anyMatch(s -> s.getID() == us.getID()))
-    		return false;    	
-    	return true;
-    }
-    
-    public boolean validateBook(Book bk){
-    	if(books.stream().anyMatch(s -> s.getID() == bk.getID()))
-    		return false;    	
-    	return true;
-    }
-    
 
-    public String findBookRent(int rentID){
-    	List<Rent> rentSearch = rents.stream().filter(s -> s.getID() == rentID).collect(Collectors.toList());
-    	int bookID = rentSearch.get(0).getBorrowedID();
-    	return findBookName(bookID);
+    public void addRent(User us, Book bk, Calendar dt) {
+	Rent nRent = new Rent(us, bk, dt, rents.size() + 1);
+	rents.add(nRent);
+	addInRentFile(nRent);
     }
-    
-    public String findBookName(int bookID){
-    	List<Book> bookSearch = books.stream().filter(s -> s.getID() == bookID).collect(Collectors.toList());
-    	return bookSearch.get(0).getName();
+
+    public void addRent(Rent nRent) {
+	rents.add(nRent);
+	addInRentFile(nRent);
+    }
+
+    public void addInRentFile(Rent nRent) {
+	try {
+	    PrintWriter pw = new PrintWriter(new FileOutputStream("src/rents.csv"));
+	    pw.println(nRent.toString());
+	    pw.close();
+	} catch (FileNotFoundException e) {
+	    e.printStackTrace();
+	}
+    }
+
+    public List<User> getUsers() {
+	return users;
+    }
+
+    public List<Book> getBooks() {
+	return books;
+    }
+
+    public List<Rent> getRents() {
+	return rents;
+    }
+
+    public boolean validateUser(User us) {
+	if (users.stream().anyMatch(s -> s.getID() == us.getID())) {
+	    return false;
+	}
+	return true;
+    }
+
+    public boolean validateBook(Book bk) {
+	if (books.stream().anyMatch(s -> s.getID() == bk.getID())) {
+	    return false;
+	}
+	return true;
+    }
+
+    public String findBookRent(int rentID) {
+	List<Rent> rentSearch = rents.stream().filter(s -> s.getID() == rentID).collect(Collectors.toList());
+	int bookID = rentSearch.get(0).getBorrowedID();
+	return findBookName(bookID);
+    }
+
+    public String findBookName(int bookID) {
+	List<Book> bookSearch = books.stream().filter(s -> s.getID() == bookID).collect(Collectors.toList());
+	return bookSearch.get(0).getName();
 
     }
 }
