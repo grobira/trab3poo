@@ -53,10 +53,10 @@ public class LibrarySystem{
     }
     
     static int Menu(){
-    	System.out.println("Bem vindo ao sistema de biblioteca");
+    	System.out.println("\nBem vindo ao sistema de biblioteca");
     	System.out.println("\n[1] Cadastrar");
     	System.out.println("[2] Listar registros");
-    	System.out.println("[3] Simular outra data");
+    	System.out.println("[3] Configurar data");
     	System.out.println("[4] Sair");
     	
     	int resp = in.nextInt();
