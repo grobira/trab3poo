@@ -36,4 +36,11 @@ public class Book {
 	public int getID() {
 		return ID;
 	}
+	
+	public void print(){
+		System.out.println("ID de cadastro do livro : " + getID());
+    	System.out.println("Nome : " + getName());
+    	System.out.println("Disponivel : " + getStatus());
+    	System.out.println();
+	}
 }

@@ -136,26 +136,24 @@ public class Visual {
     	
     }
     
-    
-    public void printUser(Biblioteca library, User us){
-    	System.out.println("Nome : " + us.getName());
-    	System.out.println("ID do cadastro : " + us.getID());
-    	System.out.println("Penalidade : " + us.getPenality());
-    	System.out.println("Maximo de emprestimos : "+ us.getMaxRents() + " durante no máximo : " + us.getRentMaxDays());
-    	int aux[] = us.getRentsID();
-    	for ( int i = 0 ; i < us.getMaxRents() ; i++){
-    		if ( aux[i] != 0){
-    			System.out.println("Livro emprestado : " + library.findBookName(aux[i]));
-    		}		
-    	}
+    public int MenuListar(){
+    	System.out.println("O que deseja listar ?");
+    	System.out.println("[1] Usuários");
+    	System.out.println("[2] Livro");
+    	
+    	int resp = in.nextInt();
+    	
+    	return resp;    	
     }
     
-    public void printBook(Book bk){
-    	System.out.println("Nome : " + bk.getName());
-    	System.out.println("ID de cadastro do livro : " + bk.getID());
-    	System.out.println("Disponivel : " + bk.getStatus());
+    public void MenuListarUsuarios(Biblioteca library){
+    	library.getUsers().stream().forEach(s -> s.print(library));
     }
     
+    public void MenuListarLivros(Biblioteca library){
+    	library.getBooks().stream().forEach(s -> s.print());
+    }
+        
     public int MenuData() {
 	System.out.println("Configuração de data:");
 	System.out.println("[1] Deixar data atual");
@@ -191,5 +189,24 @@ public class Visual {
 	
 	System.out.println("Data e Hora atual: " + c.getTime());
     return c;
+    }
+    
+    public void printUser(Biblioteca library, User us){
+    	System.out.println("Nome : " + us.getName());
+    	System.out.println("ID do cadastro : " + us.getID());
+    	System.out.println("Penalidade : " + us.getPenality());
+    	System.out.println("Maximo de emprestimos : "+ us.getMaxRents() + " durante no máximo : " + us.getRentMaxDays());
+    	int aux[] = us.getRentsID();
+    	for ( int i = 0 ; i < us.getMaxRents() ; i++){
+    		if ( aux[i] != 0){
+    			System.out.println("Livro emprestado : " + library.findBookName(aux[i]));
+    		}		
+    	}
+    }
+    
+    public void printBook(Book bk){
+    	System.out.println("Nome : " + bk.getName());
+    	System.out.println("ID de cadastro do livro : " + bk.getID());
+    	System.out.println("Disponivel : " + bk.getStatus());
     }
 }

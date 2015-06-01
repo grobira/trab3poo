@@ -45,7 +45,12 @@ public class LibrarySystem{
 			}
 		}
 		else if ( resp == 2){
-			
+			resp = vs.MenuListar();
+			if ( resp == 1){
+				vs.MenuListarUsuarios(library);
+			}else if ( resp == 2){
+				vs.MenuListarLivros(library);
+			}
 		}
 		else if ( resp == 3){
 		    resp = vs.MenuData();

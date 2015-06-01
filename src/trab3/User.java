@@ -65,4 +65,18 @@ public class User {
     		register += "," + rentsID[i];
     	return register; 
     }
+    
+    public void print(Biblioteca library){
+    	System.out.println("ID do cadastro : " + getID());
+    	System.out.println("Nome : " + getName());
+    	System.out.println("Penalidade : " + getPenality());
+    	System.out.println("Maximo de emprestimos : "+ getMaxRents() + " durante no máximo : " + getRentMaxDays());
+    	int aux[] = getRentsID();
+    	for ( int i = 0 ; i < getMaxRents() ; i++){
+    		if ( aux[i] != 0){
+    			System.out.println("Livro emprestado : " + library.findBookName(aux[i]));
+    		}		
+    	}
+    	System.out.println();
+    }
 }
