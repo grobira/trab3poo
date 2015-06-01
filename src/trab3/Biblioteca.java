@@ -135,4 +135,36 @@ public class Biblioteca {
     	    e.printStackTrace();
     	}
     }
+    
+    public List<User> getUsers(){
+    	return users;
+    }
+    
+    public List<Book> getBooks(){
+    	return books;
+    }
+    
+    public List<Rent> getRents(){
+    	return rents;
+    }
+    
+    public boolean validateUser(User us){
+    	if(users.stream().anyMatch(s -> s.getID() == us.getID()))
+    		return false;    	
+    	return true;
+    }
+    
+    public boolean validateBook(Book bk){
+    	if(books.stream().anyMatch(s -> s.getID() == bk.getID()))
+    		return false;    	
+    	return true;
+    }
+    
+    public String findBookName(int rentID){
+    	String name;
+    	rents.stream().anyMatch(s -> s.getID().equals(rentID));
+    	
+    		
+    		
+    }
 }
