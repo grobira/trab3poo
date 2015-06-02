@@ -19,6 +19,8 @@ public class Community extends User {
 	maxRents = 2;
 	this.ID = id;
 	rentsID = new int[maxRents];
+	rentsID[0] = 0;
+	rentsID[1] = 0;
 	this.type = 0;
     }
 

@@ -23,6 +23,12 @@ public class Teacher extends User {
     	maxRents = 6;
     	this.ID = id;
     	rentsID = new int[maxRents];
+    	this.rentsID[0] = 0;
+    	this.rentsID[1] = 0;
+    	this.rentsID[2] = 0;
+    	this.rentsID[3] = 0;
+    	this.rentsID[4] = 0;
+    	this.rentsID[5] = 0;
     	this.type = 2;
     }
 

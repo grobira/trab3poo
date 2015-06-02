@@ -191,7 +191,7 @@ public class Biblioteca {
 	}
 
 	public void rewrite() {
-		File file = new File("src/book.csv");
+		File file = new File("src/books.csv");
 		file.delete();
 		file = new File("src/users.csv");
 		file.delete();
@@ -199,7 +199,7 @@ public class Biblioteca {
 		file.delete();
 
 		try {
-			FileWriter arq = new FileWriter("src/book.csv");
+			FileWriter arq = new FileWriter("src/books.csv");
 			arq.close();
 		} catch (IOException e) {
 			e.printStackTrace();
