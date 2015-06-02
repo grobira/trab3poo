@@ -29,7 +29,7 @@ public class Book {
     }
 
     public String toString() {
-	String register = type + "+" + ID + "," + name;
+	String register = type + "," + ID + "," + name;
 	return register;
     }
 
