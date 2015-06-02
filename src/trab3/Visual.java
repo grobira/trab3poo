@@ -21,7 +21,7 @@ public class Visual {
 	System.out.println("[4] Registrar emprestimo");
 	System.out.println("[5] Sair");
 
-	int resp = in.nextInt();
+	int resp = Integer.parseInt(in.nextLine());
 
 	return resp;
     }
@@ -32,7 +32,7 @@ public class Visual {
 	System.out.println("[2] Livro");
 	System.out.println("[3] Sair");
 
-	int resp = in.nextInt();
+	int resp = Integer.parseInt(in.nextLine());
 	return resp;
     }
 
@@ -43,7 +43,7 @@ public class Visual {
 	System.out.println("[3] Professor");
 	System.out.println("[4] Sair");
 
-	int resp = in.nextInt();
+	int resp = Integer.parseInt(in.nextLine());
 
 	return resp;
     }
@@ -54,7 +54,7 @@ public class Visual {
 	System.out.println("[2] Livro padrão");
 	System.out.println("[3] Sair");
 
-	int resp = in.nextInt();
+	int resp = Integer.parseInt(in.nextLine());
 
 	return resp;
     }
@@ -147,7 +147,7 @@ public class Visual {
 	System.out.println("[1] Usuários");
 	System.out.println("[2] Livro");
 
-	int resp = in.nextInt();
+	int resp = Integer.parseInt(in.nextLine());
 
 	return resp;
     }
@@ -168,7 +168,7 @@ public class Visual {
 
 	int resp;
 
-	resp = in.nextInt();
+	resp = Integer.parseInt(in.nextLine());
 	return resp;
     }
 
@@ -206,7 +206,7 @@ public class Visual {
 	for (int i = 0; i < userSearch.size(); i++) {
 	    System.out.println("[" + i + "] Nome : " + userSearch.get(i).getName() + " ID : " + userSearch.get(i).getID());
 	}
-	int uPos = in.nextInt();
+	int uPos = Integer.parseInt(in.nextLine());
 	if (uPos > userSearch.size() || userSearch.get(uPos).getPenality() > 0) {
 	    System.out.println("Usuário com multa ou entrada invalida");
 	} else {
@@ -219,7 +219,7 @@ public class Visual {
 	    for (int i = 0; i < bookSearch.size(); i++) {
 		System.out.println("[" + i + "] Nome : " + bookSearch.get(i).getName() + " ID : " + bookSearch.get(i).getID());
 	    }
-	    int bPos = in.nextInt();
+	    int bPos = Integer.parseInt(in.nextLine());
 	    if (bPos > bookSearch.size() || bookSearch.get(bPos).getStatus() == false) {
 		System.out.println("Livro indisponivel ou entrada invalida");
 	    } else {

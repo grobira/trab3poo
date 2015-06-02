@@ -7,6 +7,7 @@ public class Student extends User {
 	rentMaxDays = 15;
 	maxRents = 4;
 	this.ID = Integer.parseInt(name[1]);
+	rentsID = new int[maxRents];
 	this.rentsID[0] = Integer.parseInt(name[3]);
 	this.rentsID[1] = Integer.parseInt(name[4]);
 	this.rentsID[2] = Integer.parseInt(name[5]);
